@@ -4,30 +4,33 @@ var scissors = document.getElementById("scissors");
 var left = document.getElementById("left");
 var right = document.getElementById("right");
 
-var leftArr = [0, 0, 0];
-var rightArr = [0, 0, 0];
+var leftSide;
+var rightSide;
 rock.addEventListener("click", functionRock);
 paper.addEventListener("click", functionPaper);
 scissors.addEventListener("click", functionScissors);
 function functionRock() {
-	leftArr = [0, 0, 0];
-	leftArr[0] = 1;
+	// leftArr = [0, 0, 0];
+    // leftArr[0] = 1;
+    leftSide="rock"
 	left.remove();
 	document.getElementById("leftPlayer").className = "fas fa-10x fa-hand-rock";
 	leftCss();
 	rightRandom();
 }
 function functionPaper() {
-	leftArr = [0, 0, 0];
-	leftArr[1] = 1;
+	// leftArr = [0, 0, 0];
+    // leftArr[1] = 1;\
+    leftSide="paper"
 	left.remove();
 	document.getElementById("leftPlayer").className = "far fa-10x fa-sticky-note";
 	leftCss();
 	rightRandom();
 }
 function functionScissors() {
-	leftArr = [0, 0, 0];
-	leftArr[2] = 1;
+	// leftArr = [0, 0, 0];
+    // leftArr[2] = 1;
+    leftSide="scissor"
 	left.remove();
 	document.getElementById("leftPlayer").className =
 		"far fa-10x fa-hand-scissors";
@@ -50,16 +53,18 @@ function rightRandom() {
 	}
 }
 function rightRock() {
-	rightArr = [0, 0, 0];
-	rightArr[0] = 1;
+	// rightArr = [0, 0, 0];
+    // rightArr[0] = 1;
+    rightSide="rock";
 	right.remove();
 	document.getElementById("rightPlayer").className = "far fa-10x fa-hand-rock";
 	leftCss();
 	winnerCheck();
 }
 function rightPaper() {
-	rightArr = [0, 0, 0];
-	rightArr[0] = 1;
+	// rightArr = [0, 0, 0];
+    // rightArr[0] = 1;
+    rightSide="paper";
 	right.remove();
 	document.getElementById("rightPlayer").className =
 		"far fa-10x fa-sticky-note";
@@ -67,8 +72,9 @@ function rightPaper() {
 	winnerCheck();
 }
 function rightScissors() {
-	rightArr = [0, 0, 0];
-	rightArr[0] = 1;
+	// rightArr = [0, 0, 0];
+	// rightArr[0] = 1;
+    rightSide="scissor";
 	right.remove();
 	document.getElementById("rightPlayer").className =
 		"far fa-10x fa-hand-scissors";
@@ -76,40 +82,48 @@ function rightScissors() {
 	winnerCheck();
 }
 function winnerCheck() {
-	if (
-		(leftArr[0] == 1 && rightArr[0] == 1) ||
-		(leftArr[1] == 1 && rightArr[1] == 1) ||
-		(leftArr[2] == 1 && rightArr[2] == 1)
-	) {
-		gameDraw();
-	}
-	if (leftArr[2] == 1 && rightArr[1] == 1) {
-		leftWins();
-	}
-	if (leftArr[0] == 1 && rightArr[2] == 1) {
-		leftWins();
-	}
-	if (leftArr[1] == 1 && rightArr[0] == 1) {
-		leftWins();
-	}
-	if (rightArr[0] == 1 && leftArr[2] == 1) {
-		rightWins();
-	}
-	if (rightArr[1] == 1 && leftArr[0] == 1) {
-		rightWins();
-	}
-	if (rightArr[2] == 1 && leftArr[1] == 1) {
-		rightWins();
-	}
+    if(rightSide==leftSide)
+    {
+        gameDraw();
+    }
+    if(rightSide=="rock"&&leftSide=="scissor")
+    {
+        rightWins();
+    }
+    if(leftSide=="rock"&&rightSide=="scissor")
+    {
+        leftWins();
+    }
+    if(rightSide=="rock"&&leftSide=="paper")
+    {
+        leftWins();
+    }
+    if(leftSide=="rock"&&rightSide=="paper")
+    {
+        rightWins();
+    }
+    if(rightSide=="paper"&&leftSide=="scissor")
+    {
+        leftWins();
+    }
+    if(leftSide=="paper"&&rightSide=="scissor")
+    {
+        rightWins();
+    }
+	
 }
 function gameDraw() {
-	console.log("draw");
+    document.getElementById('winner').firstChild.nodeValue="DRAW!!!";
 }
 function rightWins() {
-	console.log("right");
+    // console.log("right");
+    document.getElementById('winner').firstChild.nodeValue="COMPUTER WINS!!!";
+    
 }
 function leftWins() {
-	console.log("left");
+    // console.log("left");
+    document.getElementById('winner').firstChild.nodeValue="YOU WIN!!!";
+    
 }
 function reset() {
 	right.remove();
@@ -125,7 +139,9 @@ function reset() {
 		"rgb(151, 182, 182)";
 	document.getElementById("rightPlayer").style.padding = "10px";
 	document.getElementById("rightPlayer").style.margin = "100px";
-	document.getElementById("rightPlayer").style.border = "3px solid black";
+    document.getElementById("rightPlayer").style.border = "3px solid black";
+    document.getElementById('winner').firstChild.nodeValue="Rock Papers Scissors";
+    
 }
 function leftCss() {
 	document.getElementById("leftPlayer").style.backgroundColor = "aqua";
