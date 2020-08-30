@@ -10,8 +10,6 @@ rock.addEventListener("click", functionRock);
 paper.addEventListener("click", functionPaper);
 scissors.addEventListener("click", functionScissors);
 function functionRock() {
-	// leftArr = [0, 0, 0];
-    // leftArr[0] = 1;
     leftSide="rock"
 	left.remove();
 	document.getElementById("leftPlayer").className = "fas fa-10x fa-hand-rock";
@@ -19,8 +17,6 @@ function functionRock() {
 	rightRandom();
 }
 function functionPaper() {
-	// leftArr = [0, 0, 0];
-    // leftArr[1] = 1;\
     leftSide="paper"
 	left.remove();
 	document.getElementById("leftPlayer").className = "far fa-10x fa-sticky-note";
@@ -28,8 +24,6 @@ function functionPaper() {
 	rightRandom();
 }
 function functionScissors() {
-	// leftArr = [0, 0, 0];
-    // leftArr[2] = 1;
     leftSide="scissor"
 	left.remove();
 	document.getElementById("leftPlayer").className =
@@ -41,7 +35,6 @@ function functionScissors() {
 function rightRandom() {
 	let choice = 0;
 	choice = Math.floor(Math.random() * 3);
-	// console.log(choice);
 	if (choice == 0) {
 		rightRock();
 	}
@@ -53,8 +46,6 @@ function rightRandom() {
 	}
 }
 function rightRock() {
-	// rightArr = [0, 0, 0];
-    // rightArr[0] = 1;
     rightSide="rock";
 	right.remove();
 	document.getElementById("rightPlayer").className = "far fa-10x fa-hand-rock";
@@ -62,8 +53,6 @@ function rightRock() {
 	winnerCheck();
 }
 function rightPaper() {
-	// rightArr = [0, 0, 0];
-    // rightArr[0] = 1;
     rightSide="paper";
 	right.remove();
 	document.getElementById("rightPlayer").className =
@@ -72,8 +61,6 @@ function rightPaper() {
 	winnerCheck();
 }
 function rightScissors() {
-	// rightArr = [0, 0, 0];
-	// rightArr[0] = 1;
     rightSide="scissor";
 	right.remove();
 	document.getElementById("rightPlayer").className =
@@ -116,12 +103,10 @@ function gameDraw() {
     document.getElementById('winner').firstChild.nodeValue="DRAW!!!";
 }
 function rightWins() {
-    // console.log("right");
     document.getElementById('winner').firstChild.nodeValue="COMPUTER WINS!!!";
     
 }
 function leftWins() {
-    // console.log("left");
     document.getElementById('winner').firstChild.nodeValue="YOU WIN!!!";
     
 }
@@ -141,7 +126,6 @@ function reset() {
 	document.getElementById("rightPlayer").style.margin = "100px";
     document.getElementById("rightPlayer").style.border = "3px solid black";
     document.getElementById('winner').firstChild.nodeValue="Rock Papers Scissors";
-    
 }
 function leftCss() {
 	document.getElementById("leftPlayer").style.backgroundColor = "aqua";
