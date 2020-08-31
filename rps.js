@@ -10,21 +10,21 @@ rock.addEventListener("click", functionRock);
 paper.addEventListener("click", functionPaper);
 scissors.addEventListener("click", functionScissors);
 function functionRock() {
-    leftSide="rock"
+	leftSide = "rock";
 	left.remove();
 	document.getElementById("leftPlayer").className = "fas fa-10x fa-hand-rock";
 	leftCss();
 	rightRandom();
 }
 function functionPaper() {
-    leftSide="paper"
+	leftSide = "paper";
 	left.remove();
 	document.getElementById("leftPlayer").className = "far fa-10x fa-sticky-note";
 	leftCss();
 	rightRandom();
 }
 function functionScissors() {
-    leftSide="scissor"
+	leftSide = "scissor";
 	left.remove();
 	document.getElementById("leftPlayer").className =
 		"far fa-10x fa-hand-scissors";
@@ -46,14 +46,14 @@ function rightRandom() {
 	}
 }
 function rightRock() {
-    rightSide="rock";
+	rightSide = "rock";
 	right.remove();
 	document.getElementById("rightPlayer").className = "far fa-10x fa-hand-rock";
 	leftCss();
 	winnerCheck();
 }
 function rightPaper() {
-    rightSide="paper";
+	rightSide = "paper";
 	right.remove();
 	document.getElementById("rightPlayer").className =
 		"far fa-10x fa-sticky-note";
@@ -61,7 +61,7 @@ function rightPaper() {
 	winnerCheck();
 }
 function rightScissors() {
-    rightSide="scissor";
+	rightSide = "scissor";
 	right.remove();
 	document.getElementById("rightPlayer").className =
 		"far fa-10x fa-hand-scissors";
@@ -69,46 +69,38 @@ function rightScissors() {
 	winnerCheck();
 }
 function winnerCheck() {
-    if(rightSide==leftSide)
-    {
-        gameDraw();
-    }
-    if(rightSide=="rock"&&leftSide=="scissor")
-    {
-        rightWins();
-    }
-    if(leftSide=="rock"&&rightSide=="scissor")
-    {
-        leftWins();
-    }
-    if(rightSide=="rock"&&leftSide=="paper")
-    {
-        leftWins();
-    }
-    if(leftSide=="rock"&&rightSide=="paper")
-    {
-        rightWins();
-    }
-    if(rightSide=="paper"&&leftSide=="scissor")
-    {
-        leftWins();
-    }
-    if(leftSide=="paper"&&rightSide=="scissor")
-    {
-        rightWins();
-    }
-	
+	if (rightSide == leftSide) {
+		gameDraw();
+	}
+	if (rightSide == "rock" && leftSide == "scissor") {
+		rightWins();
+	}
+	if (leftSide == "rock" && rightSide == "scissor") {
+		leftWins();
+	}
+	if (rightSide == "rock" && leftSide == "paper") {
+		leftWins();
+	}
+	if (leftSide == "rock" && rightSide == "paper") {
+		rightWins();
+	}
+	if (rightSide == "paper" && leftSide == "scissor") {
+		leftWins();
+	}
+	if (leftSide == "paper" && rightSide == "scissor") {
+		rightWins();
+	}
 }
 function gameDraw() {
-    document.getElementById('winner').firstChild.nodeValue="DRAW!!!";
+	document.getElementById("winner").firstChild.nodeValue = "DRAW!!!";
 }
 function rightWins() {
-    document.getElementById('winner').firstChild.nodeValue="COMPUTER WINS!!!";
-    
+	document.getElementById("winner").firstChild.nodeValue = "COMPUTER WINS!!!";
+	document.getElementById("rightPlayer").style.border = "10px solid red";
 }
 function leftWins() {
-    document.getElementById('winner').firstChild.nodeValue="YOU WIN!!!";
-    
+	document.getElementById("winner").firstChild.nodeValue = "YOU WIN!!!";
+	document.getElementById("leftPlayer").style.border = "10px solid red";
 }
 function reset() {
 	right.remove();
@@ -124,8 +116,9 @@ function reset() {
 		"rgb(151, 182, 182)";
 	document.getElementById("rightPlayer").style.padding = "10px";
 	document.getElementById("rightPlayer").style.margin = "100px";
-    document.getElementById("rightPlayer").style.border = "3px solid black";
-    document.getElementById('winner').firstChild.nodeValue="Rock Papers Scissors";
+	document.getElementById("rightPlayer").style.border = "3px solid black";
+	document.getElementById("winner").firstChild.nodeValue =
+		"Rock Papers Scissors";
 }
 function leftCss() {
 	document.getElementById("leftPlayer").style.backgroundColor = "aqua";
